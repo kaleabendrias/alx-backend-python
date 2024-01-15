@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""measure the total execution time for wait_n(n, max_delay) returns.."""
 
 
 import time
