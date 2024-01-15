@@ -4,11 +4,7 @@
 import asyncio
 from typing import List
 from random import random
-
-
-async def wait_random(max_delay: int) -> float:
-    """async routine that takes in an integer argument (max_delay)"""
-    return random() * max_delay
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
