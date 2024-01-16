@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""The coroutine will loop 10 times, each time asynchronously wait 1 second"""
 
 import asyncio
 import random
