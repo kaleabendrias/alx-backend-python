@@ -20,12 +20,12 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_get_json.assert_called_once_with("https://api.github.com/orgs/{}".
                                               format(org_name))
 
-    @parameterized.expand([
-        ("random-url", {'repos_url': 'http://some_url.com'})
-    ])
-    def test_public_repos_url(self, name, result):
-        '''self descriptive'''
+    def test_public_repos_url(self):
+        """Test _public_repos_url property behavior with mocked 'org'"""
         with patch('client.GithubOrgClient.org',
-                   PropertyMock(return_value=result)):
-            response = GithubOrgClient(name)._public_repos_url
-            self.assertEqual(response, result.get('repos_url'))
+                   new_callable=PropertyMock) as mock_org_property:
+            payload = {"repos_url": "https://github.com/kaleabendrias"}
+            mock_org_property.return_value = payload
+            test_instance = GithubOrgClient('test')
+            result = test_instance._public_repos_url
+            self.assertEqual(result, payload["repos_url"])
