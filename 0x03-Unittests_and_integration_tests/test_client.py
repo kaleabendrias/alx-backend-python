@@ -64,6 +64,7 @@ class TestGithubOrgClient(unittest.TestCase):
 @parameterized_class(('org_payload', 'repos_payload', 'expected_repos',
                       'apache2_repos'), TEST_PAYLOAD)
 class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """test to IntegrationGithubOrgClient"""
 
     @classmethod
     def setUpClass(cls):
